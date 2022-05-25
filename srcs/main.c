@@ -6,7 +6,7 @@
 /*   By: saich <saich@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 17:26:38 by saich             #+#    #+#             */
-/*   Updated: 2022/05/25 17:32:45 by saich            ###   ########.fr       */
+/*   Updated: 2022/05/25 23:32:18 by saich            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,8 @@ int	main(int ac, char **av)
 	lst = NULL;
 	if (ac != 2)
 	{
-		printf("Error\n");
-		printf("Not enough arguments: you must include a .cub file for \
-		configuration of the map !\n");
+		print_error("Not enough arguments: you must include a .cub file for \
+configuration of the map !\n");
 		return (EXIT_FAILURE);
 	}
 	if (check_cub_ext(av))
@@ -101,7 +100,7 @@ int	main(int ac, char **av)
 		return (EXIT_FAILURE);
 	if (get_info(av, &lst))
 		return (EXIT_FAILURE);
-	if (check_content(&lst))
+	if (!check_content(&lst))
 		return (EXIT_FAILURE);
 	return (0);
 }

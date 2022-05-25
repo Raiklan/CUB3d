@@ -6,7 +6,7 @@
 /*   By: saich <saich@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 19:44:13 by saich             #+#    #+#             */
-/*   Updated: 2022/05/25 19:48:28 by saich            ###   ########.fr       */
+/*   Updated: 2022/05/25 23:50:48 by saich            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,37 +95,6 @@ str[0] == 'F' || str[0] == 'C')
 		
 } */
 
-static void	suppress_emptyl(t_list **lst)
-{
-	t_list	*cur;
-	t_list	*tmp;
-
-	while (*lst && (*lst)->content[0] == '\n' && (*lst)->content[1] == '\0')
-	{
-		cur = *lst;
-		*lst = (*lst)->next;
-		free(cur->content);
-		free(cur);
-	}
-	tmp = *lst;
-	while (tmp)
-	{
-		cur = tmp->next;
-		while (cur && cur->content[0] == '\n' && cur->content[1] == '\0')
-		{
-			if (cur->next)
-				tmp->next = cur->next;
-			else
-				tmp->next = NULL;
-			free(cur->content);
-			cur->next = NULL;
-			free(cur);
-			cur = tmp->next;
-		}
-		tmp = tmp->next;
-	}
-}
-
 static int	suppress_space(t_list **lst)
 {
 	t_list	*tmp;
@@ -151,12 +120,26 @@ static int	suppress_space(t_list **lst)
 t_info	*check_content(t_list **lst)
 {
 	t_info	*info;
+	t_list	*tmp;
 
 	info = init_info();
 	if (!info)
 		return (NULL);
 	if (suppress_space(lst))
 		return (NULL);
-	if ()
+	tmp = *lst;
+	while (tmp)
+	{
+		printf("%s\n", tmp->content);
+		tmp = tmp->next;
+	}
+	while (*lst)
+	{
+		tmp = (*lst)->next;
+		free((*lst)->content);
+		free((*lst));
+		(*lst) = tmp;
+	}
+	free(info);
 	return (NULL);
 }
