@@ -5,7 +5,8 @@ LIB =
 
 SRCS =	srcs/main.c	\
 		srcs/utils/get_next_line.c \
-		srcs/utils/get_next_line_utils.c
+		srcs/utils/get_next_line_utils.c \
+		srcs/parsing/check_content.c
 
 
 OBJ	= ${SRCS:.c=.o}

@@ -6,7 +6,7 @@
 /*   By: saich <saich@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 16:39:47 by saich             #+#    #+#             */
-/*   Updated: 2022/05/24 19:50:25 by saich            ###   ########.fr       */
+/*   Updated: 2022/05/25 17:27:16 by saich            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,6 @@ typedef struct s_info
 	struct s_info	*next;
 }				t_info;
 
+int		print_error(char *str);
+t_info	*check_content(t_list **lst);
 #endif
