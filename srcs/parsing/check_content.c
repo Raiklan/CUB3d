@@ -6,7 +6,7 @@
 /*   By: saich <saich@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 19:44:13 by saich             #+#    #+#             */
-/*   Updated: 2022/05/25 19:37:11 by saich            ###   ########.fr       */
+/*   Updated: 2022/05/25 19:48:28 by saich            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ static t_info	*init_info(void)
 	info->next = NULL;
 	return (info);
 }
+
 static char	*trim_nl(char *str)
 {
 	char	*tmp;
@@ -153,13 +154,9 @@ t_info	*check_content(t_list **lst)
 
 	info = init_info();
 	if (!info)
-		return NULL;
+		return (NULL);
 	if (suppress_space(lst))
 		return (NULL);
-	while(*lst)
-	{
-		printf("%s\n", (*lst)->content);
-		*lst = (*lst)->next;
-	}
+	if ()
 	return (NULL);
 }

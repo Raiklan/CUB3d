@@ -9,10 +9,10 @@ SRCS =	srcs/main.c	\
 		srcs/parsing/check_content.c
 
 
-OBJ	= ${SRCS:.c=.o}
+OBJ		= ${SRCS:.c=.o}
 OBJS	= *.o
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CC		= gcc
+CFLAGS	= -Wall -Wextra -Werror
 
 all :
 	@make bonus -C $(LIBFT)
