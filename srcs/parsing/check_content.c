@@ -6,7 +6,7 @@
 /*   By: saich <saich@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 19:44:13 by saich             #+#    #+#             */
-/*   Updated: 2022/05/25 23:50:48 by saich            ###   ########.fr       */
+/*   Updated: 2022/05/27 00:09:43 by saich            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,21 +98,18 @@ str[0] == 'F' || str[0] == 'C')
 static int	suppress_space(t_list **lst)
 {
 	t_list	*tmp;
-	int		i;
 
 	suppress_emptyl(lst);
 	tmp = *lst;
-	i = 0;
 	while (tmp)
 	{
-		if (i < 6)
+		if (!is_map(tmp->content))
 			tmp->content = trim_space(tmp->content);
 		else
 			tmp->content = trim_nl(tmp->content);
 		if (!tmp->content)
 			return (print_error(strerror(errno)));
 		tmp = tmp->next;
-		i++;
 	}
 	return (0);
 }
@@ -127,12 +124,19 @@ t_info	*check_content(t_list **lst)
 		return (NULL);
 	if (suppress_space(lst))
 		return (NULL);
+	if (right_conf_for_cub(lst, info))
+	{
+		print_error("Missing an element for configuration or map isn't \
+the last element\n");
+		return (NULL);
+	}
 	tmp = *lst;
 	while (tmp)
 	{
 		printf("%s\n", tmp->content);
 		tmp = tmp->next;
 	}
+	printf("%s\n%s\n%s\n%s\n%s\n%s\n", info->celling, info->ea_path, info->floor, info->no_path, info->so_path, info->we_path);
 	while (*lst)
 	{
 		tmp = (*lst)->next;

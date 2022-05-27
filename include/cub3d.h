@@ -6,7 +6,7 @@
 /*   By: saich <saich@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 16:39:47 by saich             #+#    #+#             */
-/*   Updated: 2022/05/25 23:27:16 by saich            ###   ########.fr       */
+/*   Updated: 2022/05/26 23:56:03 by saich            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,6 @@ int		print_error(char *str);
 t_info	*check_content(t_list **lst);
 int		empty_space_line(t_list *lst);
 void	suppress_emptyl(t_list **lst);
+int		right_conf_for_cub(t_list **lst, t_info *info);
+int		is_map(char *str);
 #endif
