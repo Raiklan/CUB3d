@@ -6,7 +6,7 @@
 /*   By: saich <saich@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 19:44:13 by saich             #+#    #+#             */
-/*   Updated: 2022/05/27 00:09:43 by saich            ###   ########.fr       */
+/*   Updated: 2022/05/30 20:50:38 by saich            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,7 @@ static char	*trim_nl(char *str)
 	int		i;
 	int		len;
 
-	i = 0;
-	len = 0;
-	while (str[i])
-	{
-		if (str[i] != '\n')
-			len++;
-		i++;
-	}
-	if (check_malloc(&tmp, sizeof(char) * len + 1))
+	if (check_malloc(&tmp, sizeof(char) * ft_strlen(str) + 1))
 		return (NULL);
 	i = 0;
 	len = 0;
@@ -137,13 +129,7 @@ the last element\n");
 		tmp = tmp->next;
 	}
 	printf("%s\n%s\n%s\n%s\n%s\n%s\n", info->celling, info->ea_path, info->floor, info->no_path, info->so_path, info->we_path);
-	while (*lst)
-	{
-		tmp = (*lst)->next;
-		free((*lst)->content);
-		free((*lst));
-		(*lst) = tmp;
-	}
-	free(info);
+	ft_lstclear(lst, free);
+	free_info(info);
 	return (NULL);
 }

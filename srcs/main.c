@@ -6,7 +6,7 @@
 /*   By: saich <saich@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 17:26:38 by saich             #+#    #+#             */
-/*   Updated: 2022/05/25 23:32:18 by saich            ###   ########.fr       */
+/*   Updated: 2022/05/30 20:51:38 by saich            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	get_info(char **av, t_list **lst)
 int	main(int ac, char **av)
 {
 	t_list	*lst;
-
+	
 	lst = NULL;
 	if (ac != 2)
 	{
