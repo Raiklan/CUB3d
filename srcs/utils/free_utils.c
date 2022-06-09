@@ -6,7 +6,7 @@
 /*   By: saich <saich@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 20:28:43 by saich             #+#    #+#             */
-/*   Updated: 2022/05/30 20:39:42 by saich            ###   ########.fr       */
+/*   Updated: 2022/06/09 17:08:19 by saich            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,23 @@ static void	free_map(char **map)
 			free(map[i]);
 			i++;
 		}
+		free(map);
 	}
+}
+
+int	count_lst(t_list *lst)
+{
+	int		i;
+	t_list	*tmp;
+
+	i = 0;
+	tmp = lst;
+	while (tmp)
+	{
+		i++;
+		tmp = tmp->next;
+	}
+	return (i);
 }
 
 void	free_info(t_info *info)

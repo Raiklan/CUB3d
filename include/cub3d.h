@@ -6,7 +6,7 @@
 /*   By: saich <saich@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 16:39:47 by saich             #+#    #+#             */
-/*   Updated: 2022/05/30 20:37:05 by saich            ###   ########.fr       */
+/*   Updated: 2022/06/09 17:02:00 by saich            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,5 @@ int		is_map(char *str);
 
 //free_utils.c
 void	free_info(t_info *info);
+int		count_lst(t_list *lst);
 #endif

@@ -6,7 +6,7 @@
 /*   By: saich <saich@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 23:55:38 by saich             #+#    #+#             */
-/*   Updated: 2022/05/30 20:38:41 by saich            ###   ########.fr       */
+/*   Updated: 2022/06/09 17:32:50 by saich            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,16 +65,33 @@ static int	right_name(char *str, t_info *info)
 		return (1);
 	return (0);
 }
-
+static int	cpy_map(int count, t_info *info, t_list *lst)
+{
+	int		i;
+	t_list	*tmp;
+	
+	i = 0;
+	tmp = lst;
+	if (count == 6)
+	{
+		if (check_malloc(&(info->map), sizeof(char *) * count_lst(tmp) + 1))
+			return (print_error("Malloc failed in copying map content\n"));
+		while (tmp)
+		{
+			if (check_malloc(&(info->map[i]), ft_strlen(tmp->content) + 1))
+				return (print_error("Malloc failed in copying map content\n"));
+			ft_strcpy(info->map[i++], tmp->content);
+			tmp = tmp->next;
+		}
+	}
+	return (0);
+}
 int	right_conf_for_cub(t_list **lst, t_info *info)
 {
 	t_list	*tmp;
 	int		count;
 	int		ret;
-	//int		i;
-	
 
-	//i = 0;
 	count = 0;
 	tmp = *lst;
 	while (tmp)
@@ -87,8 +104,7 @@ to get data from .cub\n"));
 			count++;
 		if (is_map(tmp->content))
 		{
-			//info->map[i] = NULL;
-			//ft_strcpy(info->map[i++], tmp->content);
+			cpy_map(count, info, tmp);
 			break ;
 		}
 		tmp = tmp->next;

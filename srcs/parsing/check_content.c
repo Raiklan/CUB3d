@@ -6,7 +6,7 @@
 /*   By: saich <saich@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 19:44:13 by saich             #+#    #+#             */
-/*   Updated: 2022/05/30 20:50:38 by saich            ###   ########.fr       */
+/*   Updated: 2022/06/09 17:31:15 by saich            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,8 @@ the last element\n");
 		tmp = tmp->next;
 	}
 	printf("%s\n%s\n%s\n%s\n%s\n%s\n", info->celling, info->ea_path, info->floor, info->no_path, info->so_path, info->we_path);
+	for (int i = 0; info->map[i]; i++)
+		printf("%s\n", info->map[i]);
 	ft_lstclear(lst, free);
 	free_info(info);
 	return (NULL);
